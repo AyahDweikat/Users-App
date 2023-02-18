@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
+
+.users{
+    background-color: #E5E5E5;
+    width: 100%;
+}
+.all-tickets{
+    background-color: #FFFFFF;
+    margin: 128px 33px 30px 30px;
+    height: 942px;
+    border: 1px solid #DFE0EB;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    text-align: left;
+    p.tickets-title{
+        font-size: 19px;
+        font-family: 'Mulish', sans-serif;
+        line-height: 23.85px;
+        letter-spacing: 0.4px;
+        color:#252733;
+        font-weight: 700px;
+        padding: 32px 0px 48px 32px;
+    }
+    input{
+        width: 197.12px;
+        height: 40px;
+        padding: 0px;
+        margin-top: 19px;
+        margin-right: 19px;
+        padding: 9px 0px 11px 9.42px;
+        border: 1px solid #DFE0EB;
+        font-size: 14px;
+        font-family: 'Mulish', sans-serif;
+        font-weight: 600px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+    }
+    .headingTable{
+        border-bottom: 1px solid #DFE0EB;
+        th{
+            font-size: 14px;
+            height: 18px;
+            font-weight: 700;
+            font-family: 'Mulish', sans-serif;
+            line-height: 17.57px;
+            letter-spacing: 0.2px;
+            color: #9FA2B4;
+            padding-bottom: 12px;
+            &:nth-child(1){
+                padding-left: 32px;
+            }
+        }
+    }
+    td{
+        .thumbnail-img{
+            width: 44px;
+            height: 44px;
+            margin: 24px 24px 22px 32px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            border-radius: 50%;
+        }
+        &:nth-child(1){
+            p, span{
+                width:372px;
+                height: 20px;
+            }
+        }
+        &:nth-child(2){
+            p, span{
+                width:208px;
+                height: 20px;
+            }
+        }
+        &:nth-child(3){
+            p, span{
+                width:140px;
+                height: 20px;
+            }
+        }
+        &:nth-child(4){
+            p, span{
+                width:140px;
+                height: 20px;
+            }
+        }
+        .part-one{
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+            font-family: 'Mulish', sans-serif;
+            font-weight: 600px;
+            line-height: 20px;
+            letter-spacing: 0.2px;
+            color:#252733;
+        }
+        .part-two{
+            width:372px;
+            font-size: 12px;
+            font-family: 'Mulish', sans-serif;
+            font-weight: 400px;
+            line-height: 16px;
+            letter-spacing: 0.1px;
+            color: #C5C7CD;
+        }
+    }
+}

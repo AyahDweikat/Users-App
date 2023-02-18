@@ -1,0 +1,46 @@
+.sidebar {
+  height: 100vh;
+}
+.sidebar .logo-img {
+  margin: 37px 70px 77px 54px;
+}
+.sidebar ul {
+  padding: 0;
+}
+.sidebar .sidebarList {
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.08px;
+  letter-spacing: 0.2px;
+  -moz-text-align-last: left;
+       text-align-last: left;
+}
+.sidebar .sidebarList li {
+  color: #A4A6B3;
+  list-style-type: none;
+  box-sizing: border-box;
+  padding: 18px 0px 18px 32px;
+}
+.sidebar .sidebarList li img {
+  width: 16px;
+  height: 15.67px;
+  margin-bottom: 6px;
+  color: red;
+}
+.sidebar .sidebarList li p {
+  display: inline-block;
+  margin: 0px 24px;
+  padding: 0px;
+  width: 157px;
+  height: 20px;
+}
+.sidebar .sidebarList li:hover {
+  color: #DDE2FF;
+  background-color: #494950;
+}
+.sidebar .sidebarList li.activeLi {
+  color: #DDE2FF;
+  background-color: #494950;
+  border-left: 2px solid #DDE2FF;
+}/*# sourceMappingURL=Sidebar.css.map */
