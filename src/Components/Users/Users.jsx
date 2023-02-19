@@ -1,6 +1,9 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Pagination, Select } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import DisplayTable from "./DisplayTable";
+import TablePaginationDemo from "./TablePaginationDemo";
+
 
 import "./Users.css";
 
@@ -12,10 +15,9 @@ function Users() {
   const [gender, setGender] = useState("");
 
   useEffect(() => {
-    
     getPageUsers();
-    // getUsersFilteredByNation('us')
   }, []);
+
   useEffect(() => {
     // getUsersFilteredByGender(gender)
   }, [gender]);
@@ -49,31 +51,9 @@ function Users() {
   //     console.log(res.data.results, 'gender');
   //   }
   // }
-  function getDate(dateStr){
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"];
-    var dateObj = new Date(dateStr);
-    let newdate = monthNames[dateObj.getMonth()] + " " + dateObj.getUTCDate() + ", " + dateObj.getUTCFullYear();
-    return newdate;
-  }
-
-  function getTime(dateStr){
-    var dateObj = new Date(dateStr);
-    return dateObj.toLocaleTimeString();
-  }
-
+  
   return (
     <div>
-      <header className="d-flex">
-        <p className="users-title">Users</p>
-        <div className="user-info">
-          <p className="user-info-name">Jones Ferdinand</p>
-          <div className="user-info-img">
-            <img className="user-img" src='./Images/user-img.png' width='44px' height='44px' alt="" />
-          </div>
-        </div>
-      </header>
-
       <section className="all-tickets">
         <div className="d-flex">
           <p className="tickets-title">All Users</p>
@@ -91,73 +71,12 @@ function Users() {
                 <MenuItem value={'female'}>Female</MenuItem>
               </Select>
             </FormControl>
-
-            {/* <FormControl sx={{ m: 1, minWidth: 197.12 }} size="small">
-              <InputLabel id="demo-simple-select-label">Nationality</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={nationality}
-                label="Nationality"
-                onChange={handleChangeNational}
-              >
-                <MenuItem value={'male'}>Male</MenuItem>
-                <MenuItem value={'female'}>Female</MenuItem>
-              </Select>
-            </FormControl> */}
             <input type="text" placeholder="Nationality" />
           </div>
         </div>
-
+        <DisplayTable pageUsers={pageUsers} />
         <div>
-          <table>
-            <tr className="headingTable">
-              <th>User</th>
-              <th>Contact Information</th>
-              <th>Registration Date</th>
-              <th>Country/Post Code</th>
-            </tr>
-            {pageUsers.map((user, idx) => {
-              return (
-                <tr key={idx}>
-                  <td className="d-flex flex-row">
-                    <img
-                      className="thumbnail-img"
-                      src={user.picture.thumbnail}
-                      alt=""
-                    />
-                    <div className="d-flex flex-column justify-content-center">
-                      <p className="part-one">
-                        {user.name.first + " " + user.name.last}
-                      </p>
-                      <span className="part-two">
-                        {user.location.street.number +
-                          " " +
-                          user.location.street.name +
-                          " " +
-                          user.location.city +
-                          " " +
-                          user.location.state +
-                          user.location.postcode}
-                      </span>
-                    </div>
-                  </td>
-                  <td>
-                    <p className="part-one">{user.email}</p>
-                    <span className="part-two">{user.phone}</span>
-                  </td>
-                  <td>
-                    <p className="part-one">{getDate(user.registered.date)}</p>
-                    <span className="part-two">{getTime(user.registered.date)}</span>
-                  </td>
-                  <td>
-                    <p className="part-one">{user.location.country}</p>
-                    <span className="part-two">{user.location.postcode}</span>
-                  </td>
-                </tr>
-              );
-            })}
-          </table>
+          <TablePaginationDemo/>
         </div>
       </section>
     </div>

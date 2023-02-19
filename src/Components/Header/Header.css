@@ -1,0 +1,48 @@
+header {
+  display: flex;
+  flex-direction: row;
+}
+header .users-title {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Mulish", sans-serif;
+  line-height: 30.12px;
+  letter-spacing: 0.3px;
+  color: #252733;
+  width: 771px;
+  height: 34px;
+  padding: 36px 0px 0px 30px;
+  text-align: left;
+}
+header .user-info {
+  display: flex;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+header .user-info .user-info-name {
+  margin-right: 15px;
+  padding-top: 13px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Mulish", sans-serif;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  color: #252733;
+  width: 109px;
+  height: 18px;
+}
+header .user-info .user-info-img {
+  padding: 1px;
+  border-radius: 50%;
+  border: 1.5px solid #DFE0EB;
+}
+header .user-info .user-img {
+  margin-top: 0;
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid #DFE0EB;
+  background-color: #DFE0EB;
+  border-radius: 50%;
+}/*# sourceMappingURL=Header.css.map */

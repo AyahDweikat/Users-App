@@ -1,8 +1,5 @@
-.sidebar {
-  height: 100vh;
-}
 .sidebar .logo-img {
-  margin: 37px 70px 77px 54px;
+  margin: 37px 70px 50px 54px;
 }
 .sidebar ul {
   padding: 0;
@@ -11,7 +8,7 @@
   font-family: "Mulish", sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: 20.08px;
+  line-height: 20px;
   letter-spacing: 0.2px;
   -moz-text-align-last: left;
        text-align-last: left;
