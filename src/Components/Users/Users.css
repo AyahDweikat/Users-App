@@ -4,21 +4,67 @@
   width: 100%;
 }
 
+header {
+  display: flex;
+  flex-direction: row;
+}
+header .users-title {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Mulish", sans-serif;
+  line-height: 30.12px;
+  letter-spacing: 0.3px;
+  color: #252733;
+  width: 771px;
+  height: 34px;
+  padding: 36px 0px 0px 30px;
+  text-align: left;
+}
+header .user-info {
+  display: flex;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+header .user-info .user-info-name {
+  margin-right: 15px;
+  padding-top: 13px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Mulish", sans-serif;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  color: #252733;
+  width: 109px;
+  height: 18px;
+}
+header .user-info .user-info-img {
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: 5px;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid #DFE0EB;
+  border: 1.5px solid red;
+  background-color: #C4C4C4;
+  border-radius: 50%;
+}
+
 .all-tickets {
   background-color: #FFFFFF;
-  margin: 128px 33px 30px 30px;
+  margin: 58px 33px 30px 30px;
   height: 942px;
   border: 1px solid #DFE0EB;
   border-radius: 8px;
   text-align: left;
 }
-.all-tickets p.tickets-title {
+.all-tickets .tickets-title {
   font-size: 19px;
   font-family: "Mulish", sans-serif;
+  font-weight: 700;
   line-height: 23.85px;
   letter-spacing: 0.4px;
   color: #252733;
-  font-weight: 700px;
   padding: 32px 0px 48px 32px;
 }
 .all-tickets input {
@@ -31,9 +77,12 @@
   border: 1px solid #DFE0EB;
   font-size: 14px;
   font-family: "Mulish", sans-serif;
-  font-weight: 600px;
+  font-weight: 600;
   line-height: 20px;
   letter-spacing: 0.2px;
+}
+.all-tickets tr {
+  border-bottom: 1px solid #DFE0EB;
 }
 .all-tickets .headingTable {
   border-bottom: 1px solid #DFE0EB;
@@ -50,6 +99,9 @@
 }
 .all-tickets .headingTable th:nth-child(1) {
   padding-left: 32px;
+}
+.all-tickets td {
+  padding: 0px 15px 0px 0px;
 }
 .all-tickets td .thumbnail-img {
   width: 44px;
@@ -74,11 +126,12 @@
   height: 20px;
 }
 .all-tickets td .part-one {
-  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   margin: 0px;
   font-size: 14px;
   font-family: "Mulish", sans-serif;
-  font-weight: 600px;
+  font-weight: 600;
   line-height: 20px;
   letter-spacing: 0.2px;
   color: #252733;
@@ -87,7 +140,7 @@
   width: 372px;
   font-size: 12px;
   font-family: "Mulish", sans-serif;
-  font-weight: 400px;
+  font-weight: 400;
   line-height: 16px;
   letter-spacing: 0.1px;
   color: #C5C7CD;

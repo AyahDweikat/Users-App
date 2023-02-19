@@ -1,3 +1,4 @@
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
@@ -10,13 +11,14 @@ function Users() {
   const [nationality, setNationality] = useState("");
   const [gender, setGender] = useState("");
 
-
   useEffect(() => {
-    getPageUsers()
-    // getSecondPageUsers()
+    
+    getPageUsers();
     // getUsersFilteredByNation('us')
-    // getUsersFilteredByGender('male')
   }, []);
+  useEffect(() => {
+    // getUsersFilteredByGender(gender)
+  }, [gender]);
 
   async function getPageUsers() {
     let res = await axios.get(
@@ -27,7 +29,9 @@ function Users() {
       console.log(res.data.results);
     }
   }
-
+  function handleChangeGender(e){
+    setGender(e.target.value)
+  }
   // async function getUsersFilteredByNation(national) {
   //   let res = await axios.get(
   //     `https://randomuser.me/api/?results=${numUsersPerPage}&nat=${national}`
@@ -39,35 +43,72 @@ function Users() {
   // }
 
   // async function getUsersFilteredByGender(gender) {
-  //   let res = await axios.get(`https://randomuser.me/api/?gender=${gender}`);
+  //   let res = await axios.get(`https://randomuser.me/api/?results=${numUsersPerPage}&page=${pageNum}&gender=${gender}`);
   //   if (res.status === 200) {
   //     setPageUsers(res.data.results);
-  //     console.log(res.data.results);
+  //     console.log(res.data.results, 'gender');
   //   }
   // }
+  function getDate(dateStr){
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
+    var dateObj = new Date(dateStr);
+    let newdate = monthNames[dateObj.getMonth()] + " " + dateObj.getUTCDate() + ", " + dateObj.getUTCFullYear();
+    return newdate;
+  }
+
+  function getTime(dateStr){
+    var dateObj = new Date(dateStr);
+    return dateObj.toLocaleTimeString();
+  }
 
   return (
     <div>
       <header className="d-flex">
         <p className="users-title">Users</p>
         <div className="user-info">
-          <p className="user-info-name">Name</p>
+          <p className="user-info-name">Jones Ferdinand</p>
           <div className="user-info-img">
             <img className="user-img" src="" alt="" />
           </div>
         </div>
       </header>
+
       <section className="all-tickets">
         <div className="d-flex">
           <p className="tickets-title">All Users</p>
           <div className="d-flex ms-auto">
-            <input type="text" placeholder="Gender" />
+            {/* <input type="text" placeholder="Gender" /> */}
+            <FormControl sx={{ m: 1, minWidth: 197.12 }} size="small">
+              <InputLabel id="demo-simple-select-label">Gender</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={gender}
+                label="Gender"
+                onChange={handleChangeGender}
+              >
+                <MenuItem value={'male'}>Male</MenuItem>
+                <MenuItem value={'female'}>Female</MenuItem>
+              </Select>
+            </FormControl>
+
+            {/* <FormControl sx={{ m: 1, minWidth: 197.12 }} size="small">
+              <InputLabel id="demo-simple-select-label">Nationality</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={nationality}
+                label="Nationality"
+                onChange={handleChangeNational}
+              >
+                <MenuItem value={'male'}>Male</MenuItem>
+                <MenuItem value={'female'}>Female</MenuItem>
+              </Select>
+            </FormControl> */}
             <input type="text" placeholder="Nationality" />
           </div>
-          
         </div>
-
-
 
         <div>
           <table>
@@ -77,14 +118,29 @@ function Users() {
               <th>Registration Date</th>
               <th>Country/Post Code</th>
             </tr>
-            {pageUsers.map((user, idx)=>{
-              return(
+            {pageUsers.map((user, idx) => {
+              return (
                 <tr key={idx}>
                   <td className="d-flex flex-row">
-                    <img className='thumbnail-img' src={user.picture.thumbnail} alt="" />
-                    <div className="d-flex flex-column">
-                      <p className="part-one">{user.name.first + " " + user.name.last}</p>
-                      <span className="part-two">{user.location.street.number + " " + user.location.street.name + " " + user.location.city + " " + user.location.state + user.location.postcode}</span>
+                    <img
+                      className="thumbnail-img"
+                      src={user.picture.thumbnail}
+                      alt=""
+                    />
+                    <div className="d-flex flex-column justify-content-center">
+                      <p className="part-one">
+                        {user.name.first + " " + user.name.last}
+                      </p>
+                      <span className="part-two">
+                        {user.location.street.number +
+                          " " +
+                          user.location.street.name +
+                          " " +
+                          user.location.city +
+                          " " +
+                          user.location.state +
+                          user.location.postcode}
+                      </span>
                     </div>
                   </td>
                   <td>
@@ -92,15 +148,15 @@ function Users() {
                     <span className="part-two">{user.phone}</span>
                   </td>
                   <td>
-                    <p className="part-one">{user.registered.date}</p>
-                    <span className="part-two">{user.registered.date}</span>
+                    <p className="part-one">{getDate(user.registered.date)}</p>
+                    <span className="part-two">{getTime(user.registered.date)}</span>
                   </td>
                   <td>
                     <p className="part-one">{user.location.country}</p>
                     <span className="part-two">{user.location.postcode}</span>
                   </td>
                 </tr>
-              )
+              );
             })}
           </table>
         </div>
