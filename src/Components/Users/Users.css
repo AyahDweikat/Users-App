@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
 .users {
-  background-color: #E5E5E5;
+  background-color: #fff;
   width: 100%;
 }
 
@@ -39,14 +39,17 @@ header .user-info .user-info-name {
   height: 18px;
 }
 header .user-info .user-info-img {
+  padding: 1px;
+  border-radius: 50%;
+  border: 1.5px solid #DFE0EB;
+}
+header .user-info .user-img {
   margin-top: 0;
   margin-left: auto;
-  margin-right: 5px;
   width: 44px;
   height: 44px;
   border: 1.5px solid #DFE0EB;
-  border: 1.5px solid red;
-  background-color: #C4C4C4;
+  background-color: #DFE0EB;
   border-radius: 50%;
 }
 

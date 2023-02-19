@@ -69,7 +69,7 @@ function Users() {
         <div className="user-info">
           <p className="user-info-name">Jones Ferdinand</p>
           <div className="user-info-img">
-            <img className="user-img" src="" alt="" />
+            <img className="user-img" src='./Images/user-img.png' width='44px' height='44px' alt="" />
           </div>
         </div>
       </header>
@@ -78,8 +78,7 @@ function Users() {
         <div className="d-flex">
           <p className="tickets-title">All Users</p>
           <div className="d-flex ms-auto">
-            {/* <input type="text" placeholder="Gender" /> */}
-            <FormControl sx={{ m: 1, minWidth: 197.12 }} size="small">
+            <FormControl sx={{ m: 2.5, minWidth: 197.12 }} size="small">
               <InputLabel id="demo-simple-select-label">Gender</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
