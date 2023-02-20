@@ -1,9 +1,9 @@
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { FormControl, Input, InputLabel, MenuItem, Select } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// import DisplayTable from "./DisplayTable";
+import Header from "../Header/Header";
+import BasicTable from "./BasicTable";
 // import TablePaginationDemo from "./TablePaginationDemo";
-import TemporaryDrawer from './TemporaryDrawer';
 
 import "./Users.css";
 
@@ -18,9 +18,10 @@ function Users() {
     getPageUsers();
   }, []);
 
-  useEffect(() => {
+  // useEffect(() => {
     // getUsersFilteredByGender(gender)
-  }, [gender]);
+    // console.log(gender)
+  // }, [gender]);
 
   async function getPageUsers() {
     let res = await axios.get(
@@ -31,8 +32,8 @@ function Users() {
       // console.log(res.data.results);
     }
   }
-  function handleChangeGender(e){
-    setGender(e.target.value)
+  function handleChangeGender(e) {
+    setGender(e.target.value);
   }
   // async function getUsersFilteredByNation(national) {
   //   let res = await axios.get(
@@ -51,9 +52,10 @@ function Users() {
   //     console.log(res.data.results, 'gender');
   //   }
   // }
-  
+
   return (
-    <div>
+    <div className="users">
+      <Header />
       <section className="all-tickets">
         <div className="d-flex">
           <p className="tickets-title">All Users</p>
@@ -67,17 +69,16 @@ function Users() {
                 label="Gender"
                 onChange={handleChangeGender}
               >
-                <MenuItem value={'male'}>Male</MenuItem>
-                <MenuItem value={'female'}>Female</MenuItem>
+                <MenuItem height="20px" value={""} >Not defined</MenuItem>
+                <MenuItem value={"male"}>Male</MenuItem>
+                <MenuItem value={"female"}>Female</MenuItem>
               </Select>
             </FormControl>
-            <input type="text" placeholder="Nationality" />
+            <Input type="text" placeholder="Nationality" variant="plain" className="inputNat" />
           </div>
         </div>
-        <TemporaryDrawer pageUsers={pageUsers} />
-        <div>
-          {/* <TablePaginationDemo/> */}
-        </div>
+        <BasicTable  pageUsers={pageUsers} />
+        <div>{/* <TablePaginationDemo/> */}</div>
       </section>
     </div>
   );

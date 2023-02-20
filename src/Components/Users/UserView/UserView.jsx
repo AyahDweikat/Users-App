@@ -1,12 +1,16 @@
 import React from "react";
+import "./UserView.css";
 
-function UserView({user}) {
+function UserView({ user }) {
   return (
-    <div>
-      <img src={user?.picture?.large} alt="" />
-      <div className="d-flex flex-column justify-content-center">
-        <p className="part-one">{user?.name?.first + " " + user?.name?.last}</p>
-        <span className="part-two">
+    <div className="userView">
+      <div className="blueCover"></div>
+      <div className="userCard">
+        <img className="userCard-img" src={user?.picture?.large} alt="" />
+        <p className="userCard-name">
+          {user?.name?.first + " " + user?.name?.last}
+        </p>
+        <span className="userCard-address">
           {user?.location?.street.number +
             " " +
             user?.location?.street.name +

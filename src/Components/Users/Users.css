@@ -21,7 +21,7 @@
   color: #252733;
   padding: 32px 0px 32px 32px;
 }
-.all-tickets input {
+.all-tickets .inputNat {
   width: 197.12px;
   height: 40px;
   padding: 0px;
@@ -34,14 +34,21 @@
   font-weight: 600;
   line-height: 20px;
   letter-spacing: 0.2px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
-.all-tickets tr {
+.all-tickets .tableRow {
   border-bottom: 1px solid #DFE0EB;
 }
 .all-tickets .headingTable {
+  text-align: left;
   border-bottom: 1px solid #DFE0EB;
 }
-.all-tickets .headingTable th {
+.all-tickets .headingTable .tableHeadCell {
+  text-align: left;
   font-size: 14px;
   height: 18px;
   font-weight: 700;
@@ -49,37 +56,42 @@
   line-height: 17.57px;
   letter-spacing: 0.2px;
   color: #9FA2B4;
+  padding: 0px;
   padding-bottom: 12px;
 }
-.all-tickets .headingTable th:nth-child(1) {
+.all-tickets .headingTable .tableHeadCell:nth-child(1) {
   padding-left: 32px;
 }
-.all-tickets td {
-  padding: 0px 15px 0px 0px;
+.all-tickets .tableCell {
+  padding: 0px;
+  text-align: left;
 }
-.all-tickets td .thumbnail-img {
+.all-tickets .tableCell .thumbnail-img {
   width: 44px;
   height: 44px;
   margin: 24px 24px 22px 32px;
   border-radius: 50%;
 }
-.all-tickets td:nth-child(1) p, .all-tickets td:nth-child(1) span {
+.all-tickets .tableCell:nth-child(1) p, .all-tickets .tableCell:nth-child(1) span {
   width: 372px;
   height: 20px;
 }
-.all-tickets td:nth-child(2) p, .all-tickets td:nth-child(2) span {
+.all-tickets .tableCell:nth-child(2) {
+  padding: 0px 0px 0px 0px;
+}
+.all-tickets .tableCell:nth-child(2) p, .all-tickets .tableCell:nth-child(2) span {
   width: 208px;
   height: 20px;
 }
-.all-tickets td:nth-child(3) p, .all-tickets td:nth-child(3) span {
+.all-tickets .tableCell:nth-child(3) p, .all-tickets .tableCell:nth-child(3) span {
   width: 140px;
   height: 20px;
 }
-.all-tickets td:nth-child(4) p, .all-tickets td:nth-child(4) span {
+.all-tickets .tableCell:nth-child(4) p, .all-tickets .tableCell:nth-child(4) span {
   width: 140px;
   height: 20px;
 }
-.all-tickets td .part-one {
+.all-tickets .tableCell .part-one {
   margin-top: 10px;
   margin-bottom: 10px;
   margin: 0px;
@@ -90,7 +102,7 @@
   letter-spacing: 0.2px;
   color: #252733;
 }
-.all-tickets td .part-two {
+.all-tickets .tableCell .part-two {
   width: 372px;
   font-size: 12px;
   font-family: "Mulish", sans-serif;
