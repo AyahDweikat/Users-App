@@ -1,4 +1,4 @@
-import { FormControl, InputLabel, MenuItem, Pagination, Select } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import DisplayTable from "./DisplayTable";
@@ -28,7 +28,7 @@ function Users() {
     );
     if (res.status === 200) {
       setPageUsers(res.data.results);
-      console.log(res.data.results);
+      // console.log(res.data.results);
     }
   }
   function handleChangeGender(e){
@@ -76,7 +76,7 @@ function Users() {
         </div>
         <DisplayTable pageUsers={pageUsers} />
         <div>
-          <TablePaginationDemo/>
+          {/* <TablePaginationDemo/> */}
         </div>
       </section>
     </div>
