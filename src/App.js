@@ -16,7 +16,7 @@ function App() {
       <div className='users'>
         <Header/>
         <Users/>
-        <TemporaryDrawer/>
+        {/* <TemporaryDrawer/> */}
       </div>
     </div>
   );

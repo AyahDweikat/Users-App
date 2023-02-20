@@ -1,9 +1,9 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import DisplayTable from "./DisplayTable";
-import TablePaginationDemo from "./TablePaginationDemo";
-
+// import DisplayTable from "./DisplayTable";
+// import TablePaginationDemo from "./TablePaginationDemo";
+import TemporaryDrawer from './TemporaryDrawer';
 
 import "./Users.css";
 
@@ -74,7 +74,7 @@ function Users() {
             <input type="text" placeholder="Nationality" />
           </div>
         </div>
-        <DisplayTable pageUsers={pageUsers} />
+        <TemporaryDrawer pageUsers={pageUsers} />
         <div>
           {/* <TablePaginationDemo/> */}
         </div>
