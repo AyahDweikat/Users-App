@@ -81,14 +81,17 @@
             border-radius: 50%;
         }
         &:nth-child(1){
+            // display: flex;
+            // flex-direction: column;
+            // justify-content: center;
             p, span{
                 width:372px;
                 height: 20px;
+                // display: block;
             }
         }
         &:nth-child(2){
             padding: 0px 0px 0px 0px;
-
             p, span{
                 width:208px;
                 height: 20px;

@@ -79,8 +79,7 @@ export default function BasicTable({ pageUsers }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {pageUsers? 
-          pageUsers.map((user, idx) => (
+          {pageUsers.map((user, idx) => (
             <React.Fragment key={idx}>
               <TableRow className="tableRow"
                 onClick={toggleDrawer("right", user, true)}
@@ -135,7 +134,7 @@ export default function BasicTable({ pageUsers }) {
                 {list("right")}
               </Drawer>
             </React.Fragment>
-          )): <Spinner />}
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
