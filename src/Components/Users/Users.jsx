@@ -1,4 +1,10 @@
-import { FormControl, Input, InputLabel, MenuItem, Select } from "@mui/material";
+import {
+  FormControl,
+  Input,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
@@ -15,41 +21,70 @@ function Users() {
   const [gender, setGender] = useState("");
 
   useEffect(() => {
-    getPageUsers();
+    // getPageUsers();
   }, []);
 
   // useEffect(() => {
-    // getUsersFilteredByGender(gender)
-    // console.log(gender)
+  //   if(!gender){
+  //     return;
+  //   }
+  // getUsersFilteredByGender(gender)
   // }, [gender]);
 
-  async function getPageUsers() {
-    let res = await axios.get(
-      `https://randomuser.me/api?results=${numUsersPerPage}&page=${pageNum}`
-    );
-    if (res.status === 200) {
-      setPageUsers(res.data.results);
-      // console.log(res.data.results);
-    }
-  }
+  // useEffect(()=>{
+  //   if(!nationality){
+  //     return;
+  //   }
+
+  //   getUsersFilteredByNation(nationality);
+  // },[nationality])
+
   function handleChangeGender(e) {
     setGender(e.target.value);
+    setNationality("")
   }
-  // async function getUsersFilteredByNation(national) {
+  function handleChangeNationality(e) {
+    setNationality(e.target.value);
+    setGender("")
+  }
+
+
+
+  // async function getPageUsers() {
   //   let res = await axios.get(
-  //     `https://randomuser.me/api/?results=${numUsersPerPage}&nat=${national}`
+  //     `https://randomuser.me/api?results=${numUsersPerPage}&page=${pageNum}`
   //   );
   //   if (res.status === 200) {
   //     setPageUsers(res.data.results);
-  //     console.log(res.data.results);
+  //     console.log("1")
+  //   }
+  // }
+  
+  // async function getUsersFilteredByNation(nationality) {
+  //   if(!nationality){
+  //     getPageUsers();
+  //   }
+  //   // if(!nationality) return getUsersFilteredByGender(gender);
+  //   let res = await axios.get(
+  //     `https://randomuser.me/api/?results=${numUsersPerPage}&nat=${nationality}`
+  //   );
+  //   if (res.status === 200) {
+  //     setPageUsers(res.data.results);
+  //     console.log("2")
   //   }
   // }
 
   // async function getUsersFilteredByGender(gender) {
+  //   if(!gender){
+  //     return getPageUsers();
+  //   } 
+  //   // if(!gender) return getUsersFilteredByNation(nationality);
   //   let res = await axios.get(`https://randomuser.me/api/?results=${numUsersPerPage}&page=${pageNum}&gender=${gender}`);
   //   if (res.status === 200) {
   //     setPageUsers(res.data.results);
-  //     console.log(res.data.results, 'gender');
+  //     console.log("3")
+
+  //     // console.log(res.data.results, 'gender');
   //   }
   // }
 
@@ -69,15 +104,24 @@ function Users() {
                 label="Gender"
                 onChange={handleChangeGender}
               >
-                <MenuItem height="20px" value={""} >Not defined</MenuItem>
+                <MenuItem height="20px" value={""}>
+                  Not defined
+                </MenuItem>
                 <MenuItem value={"male"}>Male</MenuItem>
                 <MenuItem value={"female"}>Female</MenuItem>
               </Select>
             </FormControl>
-            <Input type="text" placeholder="Nationality" variant="plain" className="inputNat" />
+            <Input
+              type="text"
+              placeholder="Nationality"
+              variant="plain"
+              className="inputNat"
+              value={nationality}
+              onChange={handleChangeNationality}
+            />
           </div>
         </div>
-        <BasicTable  pageUsers={pageUsers} />
+        <BasicTable pageUsers={pageUsers} />
         <div>{/* <TablePaginationDemo/> */}</div>
       </section>
     </div>

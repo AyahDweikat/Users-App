@@ -1,8 +1,10 @@
+import { Box } from "@mui/material";
 import React from "react";
 import "./UserView.css";
 
 function UserView({ user }) {
   return (
+    <Box>
     <div className="userView">
       <div className="blueCover"></div>
       <div className="userCard">
@@ -22,6 +24,7 @@ function UserView({ user }) {
         </span>
       </div>
     </div>
+    </Box>
   );
 }
 
