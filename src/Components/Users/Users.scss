@@ -71,6 +71,7 @@
     }
   }
   .tableCell {
+    text-decoration: none;
     padding: 0px;
     text-align: left;
     .thumbnail-img {
@@ -108,11 +109,13 @@
     &:nth-child(4) {
       p,
       span {
+        text-decoration: none !important;
         width: 140px;
         height: 20px;
       }
     }
     .part-one {
+      text-decoration: none !important;
       margin-top: 10px;
       margin-bottom: 10px;
       margin: 0px;
@@ -122,8 +125,10 @@
       line-height: 20px;
       letter-spacing: 0.2px;
       color: #252733;
-    }
+      -moz-text-decoration-color: transparent !important;
+}
     .part-two {
+      text-decoration: none !important;
       width: 372px;
       font-size: 12px;
       font-family: "Mulish", sans-serif;

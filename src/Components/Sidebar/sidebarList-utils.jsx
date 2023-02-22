@@ -20,7 +20,7 @@ export let sidebarList =[
     {
         name:'Users',
         icon:`./Images/icons-svg/icon4.svg`,
-        link: '/',
+        link: '/users',
         active:true,
     }
 
