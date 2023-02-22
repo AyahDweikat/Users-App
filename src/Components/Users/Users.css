@@ -42,6 +42,10 @@
 }
 .all-tickets .tableRow {
   border-bottom: 1px solid #dfe0eb;
+  cursor: pointer;
+}
+.all-tickets .tableRow:hover, .all-tickets .tableRow:visited {
+  background-color: rgba(55, 81, 255, 0.04);
 }
 .all-tickets .headingTable {
   text-align: left;

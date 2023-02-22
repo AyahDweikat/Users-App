@@ -14,36 +14,26 @@ import BasicTable from "./BasicTable";
 import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
 import NavigateBeforeRoundedIcon from "@mui/icons-material/NavigateBeforeRounded";
 import "./Users.css";
+import { getPageUsers } from "./ApiUtils";
 
 function Users() {
+  const arrNumUsersPerPage = [
+    8, 9, 10, 11, 12,
+  ];
   const [pageUsers, setPageUsers] = useState([]);
   const [numUsersPerPage, setNumUsersPerPage] = useState(8);
-  const [arrNumUsersPerPage, setArrNumUsersPerPage] = useState([
-    8, 9, 10, 11, 12,
-  ]);
   const [pageNum, setPageNum] = useState(1);
   const [nationality, setNationality] = useState("");
   const [gender, setGender] = useState("");
 
   useEffect(() => {
-    getPageUsers();
-  }, []);
+    getData()
+  }, [nationality, gender, pageNum, numUsersPerPage]);
 
-  // useEffect(() => {
-  //   if(!gender){
-  //     return;
-  //   }
-  // getUsersFilteredByGender(gender)
-  // }, [gender]);
-
-  // useEffect(()=>{
-  //   if(!nationality){
-  //     return;
-  //   }
-
-  //   getUsersFilteredByNation(nationality);
-  // },[nationality])
-
+  async function getData(){
+    let res = await getPageUsers(nationality, gender, pageNum, numUsersPerPage);
+    setPageUsers(res)
+  }
   function handleChangeGender(e) {
     setGender(e.target.value);
     setNationality("");
@@ -54,49 +44,14 @@ function Users() {
   }
   function handlePageNum(process) {
     let _pageNum = pageNum;
-    console.log(_pageNum);
     if (process === "plus") return setPageNum(++_pageNum);
     if (process === "minus" && _pageNum > 1) return setPageNum(--_pageNum);
     else if (_pageNum === 1) return;
   }
 
-  async function getPageUsers() {
-    let res = await axios.get(
-      `https://randomuser.me/api?results=${numUsersPerPage}&page=${pageNum}`
-    );
-    if (res.status === 200) {
-      setPageUsers(res.data.results);
-      console.log("1");
-    }
-  }
+  
 
-  // async function getUsersFilteredByNation(nationality) {
-  //   if(!nationality){
-  //     getPageUsers();
-  //   }
-  //   // if(!nationality) return getUsersFilteredByGender(gender);
-  //   let res = await axios.get(
-  //     `https://randomuser.me/api/?results=${numUsersPerPage}&nat=${nationality}`
-  //   );
-  //   if (res.status === 200) {
-  //     setPageUsers(res.data.results);
-  //     console.log("2")
-  //   }
-  // }
-
-  // async function getUsersFilteredByGender(gender) {
-  //   if(!gender){
-  //     return getPageUsers();
-  //   }
-  //   // if(!gender) return getUsersFilteredByNation(nationality);
-  //   let res = await axios.get(`https://randomuser.me/api/?results=${numUsersPerPage}&page=${pageNum}&gender=${gender}`);
-  //   if (res.status === 200) {
-  //     setPageUsers(res.data.results);
-  //     console.log("3")
-
-  //     // console.log(res.data.results, 'gender');
-  //   }
-  // }
+  
 
   return (
     <div className="users">
@@ -114,9 +69,7 @@ function Users() {
                 label="Gender"
                 onChange={handleChangeGender}
               >
-                <MenuItem height="20px" value={""}>
-                  Not defined
-                </MenuItem>
+                <MenuItem height="20px" value={""}>Not defined</MenuItem>
                 <MenuItem value={"male"}>Male</MenuItem>
                 <MenuItem value={"female"}>Female</MenuItem>
               </Select>
@@ -139,7 +92,7 @@ function Users() {
           <Box
             component="form"
             sx={{
-              "& .MuiTextField-root": { m: 1, width: "40px" },
+              "& .MuiTextField-root": { m: 1, width: "45px" },
             }}
             noValidate
             autoComplete="off"
@@ -179,5 +132,4 @@ function Users() {
     </div>
   );
 }
-
 export default Users;

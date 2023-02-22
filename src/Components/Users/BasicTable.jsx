@@ -2,8 +2,6 @@ import { Box, Drawer, Paper, Table, TableBody, TableCell, TableContainer, TableH
 import * as React from "react";
 import UserView from './UserView/UserView';
 
-
-
 export default function BasicTable({ pageUsers }) {
   const [userObj, setUserObj] = React.useState({});
   const [state, setState] = React.useState({
@@ -100,19 +98,16 @@ export default function BasicTable({ pageUsers }) {
                     </span>
                   </div>
                 </TableCell>
-
                 <TableCell className="tableCell" align="right">
                   <p className="part-one">{user.email}</p>
                   <span className="part-two">{user.phone}</span>
                 </TableCell>
-
                 <TableCell className="tableCell" align="right">
                   <p className="part-one">{getDate(user.registered.date)}</p>
                   <span className="part-two">
                     {getTime(user.registered.date)}
                   </span>
                 </TableCell>
-
                 <TableCell className="tableCell" align="right">
                   <p className="part-one">{user.location.country}</p>
                   <span className="part-two">{user.location.postcode}</span>
