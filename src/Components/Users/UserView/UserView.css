@@ -1,28 +1,37 @@
-.userView {
+.userPopup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 545px;
+  height: 1100px;
+  background-color: #fff;
+  z-index: 5;
+}
+.userPopup .userView {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
 }
-.userView .blueCover {
+.userPopup .userView .blueCover {
   width: 100%;
   height: 158px;
   background-color: #2050AD;
 }
-.userView .userCard {
+.userPopup .userView .userCard {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
   top: 59px;
 }
-.userView .userCard .userCard-img {
+.userPopup .userView .userCard .userCard-img {
   margin-top: 33px;
   width: 132px;
   height: 132px;
   border-radius: 50%;
 }
-.userView .userCard .userCard-name {
+.userPopup .userView .userCard .userCard-name {
   margin-top: 22px;
   margin-bottom: 10px;
   width: 372px;
@@ -34,7 +43,7 @@
   letter-spacing: 0.2px;
   color: #252733;
 }
-.userView .userCard .userCard-address {
+.userPopup .userView .userCard .userCard-address {
   width: 372px;
   text-align: center;
   font-size: 12px;

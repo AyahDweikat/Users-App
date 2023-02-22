@@ -1,10 +1,30 @@
 import { Box } from '@mui/material';
-import React from "react";
+import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import "./UserView.css";
 
-function UserView({ user }) {
+function UserView() {
+  const [user, setUser] =  useState({})
+  let [idUser, setIdUser] =  useState('')
+  let {id} = useParams()
+  
+
+
+  async function getData(){
+    let res = await axios.get(`https://randomuser.me/api`)
+    if (res.status === 200) {
+      setUser(res.data.results[0]);
+    }
+  }
+
+  useEffect(()=>{
+    getData()
+    setIdUser(id.replace(':', ""))
+  },[])
+
   return (
-    <Box>
+    <div className='userPopup'>
     <div className="userView">
       <div className="blueCover"></div>
       <div className="userCard">
@@ -24,7 +44,7 @@ function UserView({ user }) {
         </span>
       </div>
     </div>
-    </Box>
+    </div>
   );
 }
 

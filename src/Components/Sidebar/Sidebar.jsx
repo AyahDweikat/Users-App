@@ -1,14 +1,16 @@
 import React from 'react';
 import { sidebarList } from './sidebarList-utils';
 import { Link } from 'react-router-dom';
+import logo from '../../Images/logo-white-small.png';
 import './Sidebar.css';
-
 
 function Sidebar() {
   return (
     <div className='sidebar'>
         <div>
-            <img className='logo-img' src={`./Images/logo-white-small.png`} alt="logo for userpilot" />
+            <img className='logo-img' 
+            src={logo}
+            alt="logo for userpilot" />
         </div>
         <div>
           <ul>

@@ -1,4 +1,5 @@
 import React from "react";
+import userImg from '../../Images/user-img.png';
 import './Header.css'
 function Header() {
   return (
@@ -9,7 +10,7 @@ function Header() {
         <div className="user-info-img">
           <img
             className="user-img"
-            src="./Images/user-img.png"
+            src={userImg}
             width="44px"
             height="44px"
             alt=""

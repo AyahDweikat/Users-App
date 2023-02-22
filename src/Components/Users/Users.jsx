@@ -14,6 +14,7 @@ import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
 import NavigateBeforeRoundedIcon from "@mui/icons-material/NavigateBeforeRounded";
 import "./Users.css";
 import { getPageUsers } from "./ApiUtils";
+import { Outlet } from "react-router-dom";
 
 function Users() {
   const arrNumUsersPerPage = [
@@ -84,6 +85,7 @@ function Users() {
           </div>
         </div>
         <BasicTable pageUsers={pageUsers} />
+        <Outlet />
         <div className="pagination">
           <div className="rows-per-page">
             <span>Rows per Page: </span>

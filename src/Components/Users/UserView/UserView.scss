@@ -1,8 +1,17 @@
-.userView {
+.userPopup{
+  position: fixed;
+  top:0;
+  right:0;
+  width:545px;
+  height: 1100px;
+  background-color: #fff;
+  z-index: 5;
+  .userView {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  
   .blueCover {
     width: 100%;
     height: 158px;
@@ -44,3 +53,5 @@
     }
   }
 }
+}
+

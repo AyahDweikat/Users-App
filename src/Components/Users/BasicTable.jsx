@@ -1,6 +1,5 @@
 import {
   Box,
-  Drawer,
   Paper,
   Table,
   TableBody,
@@ -10,7 +9,7 @@ import {
   TableRow,
 } from "@mui/material";
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import UserView from "./UserView/UserView";
 
 export default function BasicTable({ pageUsers }) {
@@ -19,26 +18,6 @@ export default function BasicTable({ pageUsers }) {
     right: false,
   });
 
-  const toggleDrawer = (anchor, user, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setUserObj(user);
-    setState({ ...state, [anchor]: open });
-  };
-  const list = (anchor) => (
-    <Box
-      sx={{ width: 545 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <UserView user={userObj} />
-    </Box>
-  );
   function getDate(dateStr) {
     const monthNames = [
       "January",
@@ -94,8 +73,8 @@ export default function BasicTable({ pageUsers }) {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell className="tableCell" component="th" scope="row">
-                  <Link
-                    to={`/:${user.id.value}`}
+                  <Link to={`:${user.id.value}`}
+                    // to={`/users/userview?id=${user.id.value}`}
                     className="d-flex flex-row tableCell"
                   >
                     <img
@@ -118,16 +97,17 @@ export default function BasicTable({ pageUsers }) {
                           user.location.postcode}
                       </span>
                     </div>
+                    
                   </Link>
                 </TableCell>
                 <TableCell className="tableCell" align="right">
-                  <Link to={`/:${user.id.value}`} className="tableCell">
+                  <Link to={`userview`} className="tableCell">
                     <p className="part-one">{user.email}</p>
                     <span className="part-two">{user.phone}</span>
                   </Link>
                 </TableCell>
                 <TableCell className="tableCell" align="right">
-                  <Link to={`/:${user.id.value}`} className="tableCell">
+                  <Link to={`userview`} className="tableCell">
                     <p className="part-one">{getDate(user.registered.date)}</p>
                     <span className="part-two">
                       {getTime(user.registered.date)}
@@ -135,7 +115,7 @@ export default function BasicTable({ pageUsers }) {
                   </Link>
                 </TableCell>
                 <TableCell className="tableCell" align="right">
-                  <Link to={`/:${user.id.value}`} className="tableCell">
+                  <Link to={`userview`} className="tableCell">
                     <p className="part-one">{user.location.country}</p>
                     <span className="part-two">{user.location.postcode}</span>
                   </Link>
@@ -149,13 +129,11 @@ export default function BasicTable({ pageUsers }) {
   );
 }
 
-{
-  /* <Drawer
+{/* <Drawer
 variant="persistent"
 anchor={"right"}
 open={state["right"]}
 onClose={toggleDrawer("right", false)}
 >
 {list("right")}
-</Drawer> */
-}
+</Drawer>  */}
