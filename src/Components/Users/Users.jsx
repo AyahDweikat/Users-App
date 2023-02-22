@@ -1,27 +1,32 @@
 import {
+  Box,
   FormControl,
   Input,
   InputLabel,
   MenuItem,
   Select,
+  TextField,
 } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import BasicTable from "./BasicTable";
-// import TablePaginationDemo from "./TablePaginationDemo";
-
+import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
+import NavigateBeforeRoundedIcon from "@mui/icons-material/NavigateBeforeRounded";
 import "./Users.css";
 
 function Users() {
   const [pageUsers, setPageUsers] = useState([]);
   const [numUsersPerPage, setNumUsersPerPage] = useState(8);
+  const [arrNumUsersPerPage, setArrNumUsersPerPage] = useState([
+    8, 9, 10, 11, 12,
+  ]);
   const [pageNum, setPageNum] = useState(1);
   const [nationality, setNationality] = useState("");
   const [gender, setGender] = useState("");
 
   useEffect(() => {
-    // getPageUsers();
+    getPageUsers();
   }, []);
 
   // useEffect(() => {
@@ -41,25 +46,30 @@ function Users() {
 
   function handleChangeGender(e) {
     setGender(e.target.value);
-    setNationality("")
+    setNationality("");
   }
   function handleChangeNationality(e) {
     setNationality(e.target.value);
-    setGender("")
+    setGender("");
+  }
+  function handlePageNum(process) {
+    let _pageNum = pageNum;
+    console.log(_pageNum);
+    if (process === "plus") return setPageNum(++_pageNum);
+    if (process === "minus" && _pageNum > 1) return setPageNum(--_pageNum);
+    else if (_pageNum === 1) return;
   }
 
+  async function getPageUsers() {
+    let res = await axios.get(
+      `https://randomuser.me/api?results=${numUsersPerPage}&page=${pageNum}`
+    );
+    if (res.status === 200) {
+      setPageUsers(res.data.results);
+      console.log("1");
+    }
+  }
 
-
-  // async function getPageUsers() {
-  //   let res = await axios.get(
-  //     `https://randomuser.me/api?results=${numUsersPerPage}&page=${pageNum}`
-  //   );
-  //   if (res.status === 200) {
-  //     setPageUsers(res.data.results);
-  //     console.log("1")
-  //   }
-  // }
-  
   // async function getUsersFilteredByNation(nationality) {
   //   if(!nationality){
   //     getPageUsers();
@@ -77,7 +87,7 @@ function Users() {
   // async function getUsersFilteredByGender(gender) {
   //   if(!gender){
   //     return getPageUsers();
-  //   } 
+  //   }
   //   // if(!gender) return getUsersFilteredByNation(nationality);
   //   let res = await axios.get(`https://randomuser.me/api/?results=${numUsersPerPage}&page=${pageNum}&gender=${gender}`);
   //   if (res.status === 200) {
@@ -122,7 +132,49 @@ function Users() {
           </div>
         </div>
         <BasicTable pageUsers={pageUsers} />
-        <div>{/* <TablePaginationDemo/> */}</div>
+        <div className="pagination">
+          <div className="rows-per-page">
+            <span>Rows per Page: </span>
+          </div>
+          <Box
+            component="form"
+            sx={{
+              "& .MuiTextField-root": { m: 1, width: "40px" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <TextField
+              id="standard-select-currency"
+              select
+              label="Select"
+              defaultValue={numUsersPerPage}
+              onChange={(e)=> setNumUsersPerPage(e.target.value)}
+              variant="standard"
+              InputProps={{
+                disableUnderline: true,
+              }}
+            >
+              {arrNumUsersPerPage.map((option, idx) => (
+                <MenuItem key={idx} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Box>
+          <div className="navigation">
+            <NavigateBeforeRoundedIcon
+              className="navigateBtn"
+              color={`${pageNum > 1 ? "#444547" : "disabled"}`}
+              onClick={() => handlePageNum("minus")}
+            />
+            <NavigateNextRoundedIcon
+              fontSize="medium"
+              className="navigateBtn"
+              onClick={() => handlePageNum("plus")}
+            />
+          </div>
+        </div>
       </section>
     </div>
   );

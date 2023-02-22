@@ -1,18 +1,10 @@
-// import { Button } from '@mui/material';
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { sidebarList } from './sidebarList-utils';
-
-
-import './Sidebar.css';
 import { Link } from 'react-router-dom';
+import './Sidebar.css';
 
-// import logo from './Images/logo-white-small.png';
 
 function Sidebar() {
-  // function printing(){
-  //   console.log("hello world")
-  // }
   return (
     <div className='sidebar'>
         <div>
