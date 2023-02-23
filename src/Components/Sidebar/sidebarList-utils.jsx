@@ -3,9 +3,6 @@ import icon2 from '../../Images/icons-svg/icon2.svg';
 import icon3 from '../../Images/icons-svg/icon3.svg';
 import icon4 from '../../Images/icons-svg/icon4.svg';
 
-
-
-
 export let sidebarList =[
     {
         name:'Overview',
@@ -31,5 +28,4 @@ export let sidebarList =[
         link: '/users',
         active:true,
     }
-
 ]

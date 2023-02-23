@@ -1,6 +1,6 @@
 import React from 'react';
-import { sidebarList } from './sidebarList-utils';
 import { Link } from 'react-router-dom';
+import { sidebarList } from './sidebarList-utils';
 import logo from '../../Images/logo-white-small.png';
 import './Sidebar.css';
 
@@ -33,5 +33,4 @@ function Sidebar() {
     </div>
   )
 }
-
-export default Sidebar
+export default Sidebar;

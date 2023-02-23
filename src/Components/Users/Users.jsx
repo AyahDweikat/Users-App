@@ -8,28 +8,27 @@ import {
   TextField,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import Header from "../Header/Header";
-import BasicTable from "./BasicTable";
+import { Outlet } from "react-router-dom";
 import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
 import NavigateBeforeRoundedIcon from "@mui/icons-material/NavigateBeforeRounded";
-import "./Users.css";
+import Header from "../Header/Header";
+import BasicTable from "./BasicTable";
 import { getPageUsers } from "./ApiUtils";
-import { Outlet } from "react-router-dom";
+import "./Users.css";
 
 function Users() {
   const arrNumUsersPerPage = [
-    8, 9, 10, 11, 12,
+    8, 9, 10, 11, 12
   ];
   const [pageUsers, setPageUsers] = useState([]);
   const [numUsersPerPage, setNumUsersPerPage] = useState(8);
   const [pageNum, setPageNum] = useState(1);
   const [nationality, setNationality] = useState("");
   const [gender, setGender] = useState("");
-
   useEffect(() => {
     getData()
   }, [nationality, gender, pageNum, numUsersPerPage]);
-
+  
   async function getData(){
     let res = await getPageUsers(nationality, gender, pageNum, numUsersPerPage);
     setPageUsers(res)
@@ -48,11 +47,6 @@ function Users() {
     if (process === "minus" && _pageNum > 1) return setPageNum(--_pageNum);
     else if (_pageNum === 1) return;
   }
-
-  
-
-  
-
   return (
     <div className="users">
       <Header />

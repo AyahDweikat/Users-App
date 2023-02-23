@@ -1,6 +1,7 @@
 import React from "react";
 import userImg from '../../Images/user-img.png';
-import './Header.css'
+import './Header.css';
+
 function Header() {
   return (
     <header className="d-flex">
