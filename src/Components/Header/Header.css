@@ -23,26 +23,26 @@ header .user-info {
 header .user-info .user-info-name {
   margin-right: 15px;
   padding-top: 13px;
+  color: #252733;
+  width: 109px;
+  height: 18px;
   font-size: 14px;
   font-weight: 600;
   font-family: "Mulish", sans-serif;
   line-height: 20px;
   letter-spacing: 0.2px;
-  color: #252733;
-  width: 109px;
-  height: 18px;
 }
 header .user-info .user-info-img {
   padding: 1px;
   border-radius: 50%;
-  border: 1.5px solid #DFE0EB;
+  border: 1.5px solid #dfe0eb;
 }
 header .user-info .user-img {
   margin-top: 0;
   margin-left: auto;
   width: 44px;
   height: 44px;
-  border: 1.5px solid #DFE0EB;
-  background-color: #DFE0EB;
+  border: 1.5px solid #dfe0eb;
+  background-color: #dfe0eb;
   border-radius: 50%;
 }/*# sourceMappingURL=Header.css.map */

@@ -1,56 +1,56 @@
-header{
+// mixins
+@mixin borderRadius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin fontFeatures($fontSz, $fontWght, $fontFmly, $lineHght, $letterSpc) {
+  font-size: $fontSz;
+  font-weight: $fontWght;
+  font-family: $fontFmly, sans-serif;
+  line-height: $lineHght;
+  letter-spacing: $letterSpc;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  .users-title {
+    @include fontFeatures(24px, 700, "Mulish", 30.12px, 0.3px);
+    color: #252733;
+    width: 771px;
+    height: 34px;
+    padding: 36px 0px 0px 30px;
+    text-align: left;
+  }
+  .user-info {
     display: flex;
-    flex-direction: row;
-    .users-title{
-        font-size: 24px;
-        font-weight: 700;
-        font-family: 'Mulish', sans-serif;
-        line-height: 30.12px;
-        letter-spacing: 0.3px;
-        color:#252733;
-        width: 771px;
-        height: 34px;
-        padding: 36px 0px 0px 30px;
-        text-align: left;
+    margin-left: auto;
+    margin-top: 30px;
+    margin-right: 30px;
+    .user-info-name {
+      margin-right: 15px;
+      padding-top: 13px;
+      color: #252733;
+      width: 109px;
+      height: 18px;
+      @include fontFeatures(14px, 600, "Mulish", 20px, 0.2px);
     }
-    .user-info{
-        display: flex;
-        margin-left: auto;
-        margin-top: 30px;
-        margin-right: 30px;
-        .user-info-name{
-            margin-right: 15px;
-            padding-top: 13px;
-            font-size: 14px;
-            font-weight: 600;
-            font-family: 'Mulish', sans-serif;
-            line-height: 20px;
-            letter-spacing: 0.2px;
-            color:#252733;
-            width: 109px;
-            height: 18px;
-        }
-        .user-info-img{
-            padding: 1px;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
-            border-radius: 50%;
-            border: 1.5px solid #DFE0EB;
-        }
-        .user-img{
-            margin-top: 0;
-            margin-left: auto;
-            width: 44px;
-            height: 44px;
-            border: 1.5px solid #DFE0EB;
-            background-color: #DFE0EB;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
-            border-radius: 50%;
-        }
+    .user-info-img {
+      padding: 1px;
+      @include borderRadius(50%);
+      border: 1.5px solid #dfe0eb;
     }
+    .user-img {
+      margin-top: 0;
+      margin-left: auto;
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid #dfe0eb;
+      background-color: #dfe0eb;
+      @include borderRadius(50%);
+    }
+  }
 }

@@ -16,7 +16,7 @@
 .userPopup .userView .blueCover {
   width: 100%;
   height: 158px;
-  background-color: #2050AD;
+  background-color: #2050ad;
 }
 .userPopup .userView .userCard {
   display: flex;
@@ -37,8 +37,8 @@
   width: 372px;
   text-align: center;
   font-size: 14px;
-  font-family: "Mulish", sans-serif;
   font-weight: 600;
+  font-family: "Mulish", sans-serif;
   line-height: 20px;
   letter-spacing: 0.2px;
   color: #252733;
@@ -47,8 +47,8 @@
   width: 372px;
   text-align: center;
   font-size: 12px;
-  font-family: "Mulish", sans-serif;
   font-weight: 400;
+  font-family: "Mulish", sans-serif;
   line-height: 16px;
   letter-spacing: 0.1px;
   color: #c5c7cd;

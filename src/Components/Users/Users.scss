@@ -1,27 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap");
+// mixins
+@mixin borderRadius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin fontFeatures($fontSz, $fontWght, $fontFmly, $lineHght, $letterSpc) {
+  font-size: $fontSz;
+  font-weight: $fontWght;
+  font-family: $fontFmly, sans-serif;
+  line-height: $lineHght;
+  letter-spacing: $letterSpc;
+}
 
 .users {
   background-color: #fff;
   width: 100%;
 }
-
 .all-tickets {
   background-color: #ffffff;
   margin: 50px 33px 30px 30px;
   height: 942px;
   border: 1px solid #dfe0eb;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-  border-radius: 8px;
+  @include borderRadius(8px);
   text-align: left;
   .tickets-title {
-    font-size: 19px;
-    font-family: "Mulish", sans-serif;
-    font-weight: 700;
-    line-height: 23.85px;
-    letter-spacing: 0.4px;
+    @include fontFeatures(19px, 700, "Mulish", 23.85px, 0.4px);
     color: #252733;
     padding: 32px 0px 32px 32px;
   }
@@ -33,35 +38,24 @@
     margin-right: 19px;
     padding: 9px 0px 11px 9.42px;
     border: 1px solid #dfe0eb;
-    font-size: 14px;
-    font-family: "Mulish", sans-serif;
-    font-weight: 600;
-    line-height: 20px;
-    letter-spacing: 0.2px;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+    @include fontFeatures(14px, 600, "Mulish", 20px, 0.2px);
+    @include borderRadius(8px);
   }
   .tableRow {
     border-bottom: 1px solid #dfe0eb;
     cursor: pointer;
-    &:hover, &:visited{
-        background-color: rgb(55, 81, 255, 0.04);
+    &:hover,
+    &:visited {
+      background-color: rgb(55, 81, 255, 0.04);
     }
-  } 
+  }
   .headingTable {
     text-align: left;
     border-bottom: 1px solid #dfe0eb;
     .tableHeadCell {
       text-align: left;
-      font-size: 14px;
       height: 18px;
-      font-weight: 700;
-      font-family: "Mulish", sans-serif;
-      line-height: 17.57px;
-      letter-spacing: 0.2px;
+      @include fontFeatures(14px, 700, "Mulish", 17.57px, 0.2px);
       color: #9fa2b4;
       padding: 0px;
       padding-bottom: 12px;
@@ -78,11 +72,7 @@
       width: 44px;
       height: 44px;
       margin: 24px 24px 22px 32px;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      -ms-border-radius: 50%;
-      -o-border-radius: 50%;
-      border-radius: 50%;
+      @include borderRadius(50%);
     }
     &:nth-child(1) {
       p,
@@ -115,26 +105,17 @@
       }
     }
     .part-one {
-      text-decoration: none !important;
       margin-top: 10px;
       margin-bottom: 10px;
       margin: 0px;
-      font-size: 14px;
-      font-family: "Mulish", sans-serif;
-      font-weight: 600;
-      line-height: 20px;
-      letter-spacing: 0.2px;
+      @include fontFeatures(14px, 600, "Mulish", 20px, 0.2px);
       color: #252733;
-      -moz-text-decoration-color: transparent !important;
-}
+      text-decoration: none !important;
+    }
     .part-two {
       text-decoration: none !important;
       width: 372px;
-      font-size: 12px;
-      font-family: "Mulish", sans-serif;
-      font-weight: 400;
-      line-height: 16px;
-      letter-spacing: 0.1px;
+      @include fontFeatures(12px, 400, "Mulish", 16px, 0.1px);
       color: #c5c7cd;
     }
   }
@@ -145,25 +126,21 @@
     margin-right: 30px;
     padding: 30px 0px;
     height: 72px;
-    .rows-per-page{
-        height: 18px;
-        width: 106px;
-        font-size: 14px;
-        font-weight: 400;
-        font-family: "Mulish", sans-serif;
-        color: #9FA2B4;
+    .rows-per-page {
+      height: 18px;
+      width: 106px;
+      @include fontFeatures(14px, 400, "Mulish", 17.57px, 0.1px);
+      color: #9fa2b4;
     }
     .navigation {
-        margin-left: 27px;
+      margin-left: 27px;
       color: #9fa2b4;
       .navigateBtn {
         margin-left: 12px;
         &:hover {
-          color: blue;
+          color: #0000ff;
         }
       }
     }
   }
 }
-
-

@@ -1,57 +1,64 @@
-.userPopup{
+// mixins
+@mixin borderRadius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin fontFeatures($fontSz, $fontWght, $fontFmly, $lineHght, $letterSpc) {
+  font-size: $fontSz;
+  font-weight: $fontWght;
+  font-family: $fontFmly, sans-serif;
+  line-height: $lineHght;
+  letter-spacing: $letterSpc;
+}
+
+.userPopup {
   position: fixed;
-  top:0;
-  right:0;
-  width:545px;
+  top: 0;
+  right: 0;
+  width: 545px;
   height: 1100px;
   background-color: #fff;
   z-index: 5;
   .userView {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  
-  .blueCover {
-    width: 100%;
-    height: 158px;
-    background-color: #2050AD;
-  }
-  .userCard {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    top:59px;
-    .userCard-img {
-      margin-top: 33px;
-      width: 132px;
-      height: 132px;
-      border-radius: 50%;
+    position: relative;
+
+    .blueCover {
+      width: 100%;
+      height: 158px;
+      background-color: #2050ad;
     }
-    .userCard-name {
-      margin-top: 22px;
-      margin-bottom: 10px;
-      width: 372px;
-      text-align: center;
-      font-size: 14px;
-      font-family: "Mulish", sans-serif;
-      font-weight: 600;
-      line-height: 20px;
-      letter-spacing: 0.2px;
-      color: #252733;
-    }
-    .userCard-address {
-      width: 372px;
-      text-align: center;
-      font-size: 12px;
-      font-family: "Mulish", sans-serif;
-      font-weight: 400;
-      line-height: 16px;
-      letter-spacing: 0.1px;
-      color: #c5c7cd;
+    .userCard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 59px;
+      .userCard-img {
+        margin-top: 33px;
+        width: 132px;
+        height: 132px;
+        @include borderRadius(50%);
+      }
+      .userCard-name {
+        margin-top: 22px;
+        margin-bottom: 10px;
+        width: 372px;
+        text-align: center;
+        @include fontFeatures(14px, 600, "Mulish", 20px, 0.2px);
+        color: #252733;
+      }
+      .userCard-address {
+        width: 372px;
+        text-align: center;
+        @include fontFeatures(12px, 400, "Mulish", 16px, 0.1px);
+        color: #c5c7cd;
+      }
     }
   }
 }
-}
-
